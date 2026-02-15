@@ -16,7 +16,7 @@ st.title("Job Matcher")
 
 uploaded_file = st.file_uploader(
     "Selecciona un archivo PDF",
-    type=["pdf"]  # Solo permite PDFs
+    type=["pdf"] 
 )
 
 
