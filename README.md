@@ -11,6 +11,11 @@ Subir Curriculum vitae con formato pdf.
 
 Click en el boton "Iniciar" para el analisis de las similitudes.
 
+# Desventajas
+
+Funciona con datasets aislados.
+
+No incluye webscrapping.
 
 ## Proposito
 
