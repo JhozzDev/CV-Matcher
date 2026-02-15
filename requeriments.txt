@@ -1,0 +1,4 @@
+pandas
+sckitlearn
+pdfplumber
+streamlit
