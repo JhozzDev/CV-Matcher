@@ -3,25 +3,27 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pdfplumber
+import altair as alt
 
 @st.cache_data
 def load_data():
     return pd.read_csv("data/jobs.csv")
 
 st.set_page_config(
-    page_title="Job Matcher",
-    layout="wide" 
+    page_title="Job Matcher"
 )
+
 st.title("Job Matcher")
+st.write("Sube tu CV y obtén un análisis automático")
 
 uploaded_file = st.file_uploader(
     "Selecciona un archivo PDF",
     type=["pdf"] 
 )
 
-
 if uploaded_file is not None:
     texto_completo = ""
+    st.success(f"Archivo `{uploaded_file.name}` cargado correctamente")
     with pdfplumber.open(uploaded_file) as pdf:
             texto_completo = ""
             for pagina in pdf.pages:
@@ -44,5 +46,16 @@ if st.button("Iniciar") and uploaded_file is not None:
     df["match_scores"] = score
     df_sorted = df.sort_values("match_scores", ascending=False)
 
+    df_sorted["match_percent"] =  (df_sorted["match_scores"] * 100).round(2)
+
+    top5 = df_sorted.head(5)
+    for idx, row in top5.iterrows():
+        with st.expander(f"{row['title']} - {row['match_percent']}% match"):
+            st.write(f"[Ver oferta]({row['link']})")
+            st.write(row["description"])
+
+
     print(df_sorted[:5])
+        
+    st.subheader("Extras")
     st.dataframe(df_sorted[["title", "match_scores", "link"]])
