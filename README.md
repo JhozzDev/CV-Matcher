@@ -1,6 +1,6 @@
 # Curriculum vitae matcher
 
-Analizador de curriculum vitae para la busqueda de ofertas de empleo apegadas a nuestro perfil laboral.
+Analizador de curriculum vitae para la busqueda de ofertas de empleo apegadas a nuestro perfil laboral con proceso de scrapping en Linkedin.
 
 
 ## Uso
@@ -13,7 +13,7 @@ Click en el boton "Iniciar" para el analisis de las similitudes.
 
 ## Proposito
 
-Reducir el tiempo de busqueda a la hora de buscar empleo registrando cuales ofertas se apegan mas a tu realidad laboral.
+Reducir el tiempo de busqueda a la hora de buscar empleo registrando cuales ofertas se apegan mas a la realidad laboral.
 
 ## Tecnologias
 
@@ -24,3 +24,5 @@ Pandas: Para la lectura de los datos y el manejo de dataframes dentro del progra
 Streamlit: Visualizacion de ofertas relacionadas al CV representadas con porcentajes.
 
 PdfPlumber: Lectura del curriculum vitae para convertirlo a texto.
+
+
